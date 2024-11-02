@@ -3,48 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Certificate Verification</title>
+    <title>Certificate Download</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS file ko link kar rahe hain -->
 </head>
 <body>
-    <h2>Certificate Verification</h2>
-    <form id="verifyForm" onsubmit="verifyCertificate(); return false;">
-        <label for="certificateID">Enter Certificate ID:</label>
+    <h1>Download Your Certificate</h1>
+    <form id="verificationForm">
+        <label for="certificateID">Certificate ID:</label>
         <input type="text" id="certificateID" required>
-        <input type="text" id="certificateID" placeholder="Enter Certificate ID" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter Password" required>
-
+        <br>
         <label for="password">Password:</label>
         <input type="password" id="password" required>
-
-        <button type="submit">Verify</button>
+        <br>
+        <button type="button" onclick="verifyCertificate()">Download Certificate</button>
     </form>
-    <p id="result"></p>
+    <div id="result"></div>
 
     <script>
-      function generatePDF(certificateID) {
-    const validCertificates = {
-        "CERT123": "password123", // Example valid credentials
-        "CERT456": "password456",
-        "CERT789": "password789"
-    };
+        function verifyCertificate() {
+            // Yahan hum ID aur password ko verify karenge
+            const certificateID = document.getElementById('certificateID').value;
+            const password = document.getElementById('password').value;
+            const resultDiv = document.getElementById('result');
 
-    // Replace with your actual PDF file link from GitHub
-    const pdfFileLink = "https://github.com/yourusername/yourrepository/raw/main/pdf/yourfile.pdf"; // Update this link
+            // Yeh ek sample data structure hai
+            const certificates = {
+                "student1": { password: "pass1", pdf: "certificate1.pdf" },
+                "student2": { password: "pass2", pdf: "certificate2.pdf" },
+                "student3": { password: "pass3", pdf: "certificate3.pdf" }
+            };
 
-    const resultElement = document.getElementById("result");
-
-    if (validCertificates[certificateID] && validCertificates[certificateID] === password) {
-        window.open(pdfFileLink, '_blank'); // Open PDF in new tab
-        resultElement.innerText = "Certificate is valid! PDF is being downloaded.";
-        resultElement.className = "valid"; // Add valid class for green color
-    } else {
-        resultElement.innerText = "Invalid certificate ID or password.";
-        resultElement.className = "invalid"; // Add invalid class for red color
-    }
-}
-
+            // ID aur password ki verification
+            if (certificates[certificateID] && certificates[certificateID].password === password) {
+                // PDF download karne ka link
+                const pdfLink = certificates[certificateID].pdf;
+                resultDiv.innerHTML = `<span class="valid">Certificate found! <a href="${pdfLink}" download>Click here to download</a></span>`;
+            } else {
+                resultDiv.innerHTML = `<span class="invalid">Invalid Certificate ID or Password.</span>`;
+            }
+        }
     </script>
 </body>
 </html>
