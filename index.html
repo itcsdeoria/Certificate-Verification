@@ -11,6 +11,13 @@
     <form id="verifyForm" onsubmit="verifyCertificate(); return false;">
         <label for="certificateID">Enter Certificate ID:</label>
         <input type="text" id="certificateID" required>
+        <input type="text" id="certificateID" placeholder="Enter Certificate ID" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+
         <button type="submit">Verify</button>
     </form>
     <p id="result"></p>
