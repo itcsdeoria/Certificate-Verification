@@ -16,16 +16,24 @@
     <p id="result"></p>
 
     <script>
-        function verifyCertificate() {
-    const certificateID = document.getElementById("certificateID").value;
-    const validCertificates = ["CERT123", "CERT456", "CERT789"]; // Example certificate IDs
+      function generatePDF(certificateID) {
+    const validCertificates = {
+        "CERT123": "password123", // Example valid credentials
+        "CERT456": "password456",
+        "CERT789": "password789"
+    };
+
+    // Replace with your actual PDF file link from GitHub
+    const pdfFileLink = "https://github.com/yourusername/yourrepository/raw/main/pdf/yourfile.pdf"; // Update this link
+
     const resultElement = document.getElementById("result");
 
-    if (validCertificates.includes(certificateID)) {
-        resultElement.innerText = "Certificate is valid!";
+    if (validCertificates[certificateID] && validCertificates[certificateID] === password) {
+        window.open(pdfFileLink, '_blank'); // Open PDF in new tab
+        resultElement.innerText = "Certificate is valid! PDF is being downloaded.";
         resultElement.className = "valid"; // Add valid class for green color
     } else {
-        resultElement.innerText = "Invalid certificate ID.";
+        resultElement.innerText = "Invalid certificate ID or password.";
         resultElement.className = "invalid"; // Add invalid class for red color
     }
 }
