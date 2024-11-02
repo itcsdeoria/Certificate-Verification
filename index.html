@@ -12,8 +12,8 @@
         <label for="certificateID">Certificate ID:</label>
         <input type="text" id="certificateID" required>
         <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" required>
+        <label for="Branch">Branch:</label>
+        <input type="Text" id="Branch" required>
         <br>
         <button type="button" onclick="verifyCertificate()">Download Certificate</button>
     </form>
@@ -23,18 +23,18 @@
         function verifyCertificate() {
             // Yahan hum ID aur password ko verify karenge
             const certificateID = document.getElementById('certificateID').value;
-            const password = document.getElementById('password').value;
+            const password = document.getElementById('Branch').value;
             const resultDiv = document.getElementById('result');
 
             // Yeh ek sample data structure hai
             const certificates = {
-                "student1": { password: "pass1", pdf: "https://drive.google.com/file/d/13e7_k1T1up_s1-NRlHE3RKhj8l567bIL/view?usp=sharing" },
-                "student2": { password: "pass2", pdf: "certificate2.pdf" },
-                "student3": { password: "pass3", pdf: "certificate3.pdf" }
+                "student1": { Branch: "deoria", pdf: "https://drive.google.com/file/d/13e7_k1T1up_s1-NRlHE3RKhj8l567bIL/view?usp=sharing" },
+                "student2": { Branch: "deoria", pdf: "certificate2.pdf" },
+                "student3": { Branch: "deoria", pdf: "certificate3.pdf" }
             };
 
             // ID aur password ki verification
-            if (certificates[certificateID] && certificates[certificateID].password === password) {
+            if (certificates[certificateID] && certificates[certificateID].Branch === Branch) {
                 // PDF download karne ka link
                 const pdfLink = certificates[certificateID].pdf;
                 resultDiv.innerHTML = `<span class="valid"> <pre>        Certificate found! </pre><a href="${pdfLink}" download> Click here to download</a></span>`;
