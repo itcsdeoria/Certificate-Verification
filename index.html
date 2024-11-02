@@ -16,16 +16,19 @@
 
     <script>
         function verifyCertificate() {
-            const certificateID = document.getElementById("certificateID").value;
-            const validCertificates = 
-["12345", "CERT456", "CERT789", "10001", "10002"]; // Example certificate IDs
+    const certificateID = document.getElementById("certificateID").value;
+    const validCertificates = ["CERT123", "CERT456", "CERT789"]; // Example certificate IDs
+    const resultElement = document.getElementById("result");
 
-            if (validCertificates.includes(certificateID)) {
-                document.getElementById("result").innerText = "Certificate is valid!";
-            } else {
-                document.getElementById("result").innerText = "Invalid certificate ID.";
-            }
-        }
+    if (validCertificates.includes(certificateID)) {
+        resultElement.innerText = "Certificate is valid!";
+        resultElement.className = "valid"; // Add valid class for green color
+    } else {
+        resultElement.innerText = "Invalid certificate ID.";
+        resultElement.className = "invalid"; // Add invalid class for red color
+    }
+}
+
     </script>
 </body>
 </html>
