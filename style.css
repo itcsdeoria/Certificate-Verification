@@ -1,0 +1,81 @@
+/* General page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e0e0e0; /* Light background for contrast */
+}
+
+/* Container styling */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+form:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Input styling */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff; /* Border color on focus */
+    outline: none;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight increase in size on hover */
+}
+
+/* Result message styling */
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth transition */
+}
+
+#result.valid {
+    color: #28a745; /* Green for valid messages */
+}
+
+#result.invalid {
+    color: #dc3545; /* Red for invalid messages */
+}
