@@ -37,9 +37,9 @@
             if (certificates[certificateID] && certificates[certificateID].password === password) {
                 // PDF download karne ka link
                 const pdfLink = certificates[certificateID].pdf;
-                resultDiv.innerHTML = `<span class="valid"> <pre>        Certificate found! </pre><a href="${pdfLink}" download>Click here to download</a></span>`;
+                resultDiv.innerHTML = `<span class="valid"> <pre>        Certificate found! </pre><a href="${pdfLink}" download> Click here to download</a></span>`;
             } else {
-                resultDiv.innerHTML = `<span class="invalid">Invalid Certificate ID or Password.</span>`;
+                resultDiv.innerHTML = `<span class="invalid"> <pre>       Invalid Certificate ID or Password.</pre> </span>`;
             }
         }
     </script>
